@@ -149,4 +149,10 @@ MIT License - lásd [LICENSE](LICENSE) fájl a részletekért.
 
 ---
 
+## 🤖 AI-asszisztált fejlesztés
+
+Ez a projekt AI-asszisztált fejlesztéssel készült (Claude, Anthropic). A tervezés, döntések és végrehajtás a szerző munkája, az AI kódolási és dokumentációs segédeszközként szolgált.
+
+---
+
 > **Megjegyzés**: Ez a projekt tanulási és portfólió célokat szolgál. Használat előtt mindig teszteld a scripteket nem-production környezetben!
