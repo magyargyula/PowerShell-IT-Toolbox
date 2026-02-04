@@ -1,0 +1,22 @@
+# PowerShell
+*.ps1xml
+*.psd1
+*.psm1
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+*.txt
+
+# Output files (if any)
+reports/
+output/
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
