@@ -20,9 +20,16 @@
 .NOTES
     Szerző: Magyar Gyula
     Dátum: 2025-02-04
-    Verzió: 1.0
+    Verzió: 1.1
     Nehézség: ⭐ Kezdő
 #>
+
+# ===== ENCODING BEÁLLÍTÁS =====
+# UTF-8 kódolás beállítása a magyar ékezetes karakterek helyes megjelenítéséhez
+# A konzol kódlapját UTF-8-ra állítjuk (Code Page 65001)
+cmd /c chcp 65001 >$null 2>&1
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 
 # ===== FEJLÉC KIÍRÁSA =====
 Write-Host ""
