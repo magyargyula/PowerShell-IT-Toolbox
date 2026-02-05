@@ -74,6 +74,72 @@ Uptime: 5 nap, 0 óra, 58 perc
 
 ---
 
+### 2. Get-ServiceStatus.ps1
+
+**Nehézség**: ⭐ Kezdő
+
+**Leírás**: Ellenőrzi a kritikus Windows szolgáltatások állapotát és színkódolt összegzést ad.
+
+**Funkciók**:
+- 12 kritikus Windows szolgáltatás ellenőrzése
+- Állapot: Running (fut), Stopped (leállt), Paused (szünetel)
+- Szolgáltatás típus (Automatic, Manual, Disabled)
+- Színkódolás: zöld (fut), piros (leállt), sárga (szünetel)
+- Összegzés és állapotértékelés
+- Leállt szolgáltatások újraindító parancsai
+
+**Ellenőrzött szolgáltatások**:
+- Windows Update, BITS
+- Print Spooler, WinRM
+- Event Log, Task Scheduler
+- Windows Time, DHCP Client
+- DNS Client, Server (File Sharing)
+- Workstation, RPC
+
+**Használat**:
+```powershell
+.\Get-ServiceStatus.ps1
+```
+
+**Példa kimenet**:
+```
+=============================================
+   WINDOWS SZOLGALTATAS ALLAPOT ELLENORZES
+=============================================
+
+Szamitogep: ACER-AN515-54
+Datum:      2026-02-05 09:30:15
+
+---------------------------------------------
+[RUNNING]    Windows Update                      (Manual)
+[RUNNING]    Background Intelligent Transfer     (Manual)
+[STOPPED]    Print Spooler                       (Automatic)
+[RUNNING]    Windows Remote Management           (Manual)
+...
+
+---------------------------------------------
+
+OSSZEGZES:
+  Futo szolgaltatasok:       10
+  Leallitott/szuneteltetett: 2
+  Nem talalhato:             0
+
+ALLAPOT: Figyelem - 2 szolgaltatas nem fut!
+
+Leallitott szolgaltatasok ujrainditasa:
+  Start-Service -Name 'Spooler'
+```
+
+**Mit tanulsz belőle**:
+- Szolgáltatások lekérdezése (`Get-Service`)
+- Hashtable-ök és tömbök használata
+- Switch statement állapotkezelésre
+- String formázás (`-f` operátor)
+- Objektumok létrehozása (`[PSCustomObject]`)
+- Hibakezelés (`-ErrorAction`)
+
+---
+
 ## Telepítés
 
 1. **Klónozd a repot**:
@@ -114,9 +180,9 @@ Uptime: 5 nap, 0 óra, 58 perc
 
 Tervezett további scriptek:
 - **Temp Folder Cleanup Tool** - Régi temp fájlok törlése
-- **Service Status Monitor** - Kritikus szolgáltatások ellenőrzése
 - **User Account Info Tool** - Local user account információk
 - **Disk Space Alert** - Email értesítés alacsony disk space esetén
+- **Network Info Tool** - Hálózati adapter információk
 
 ## Közreműködés
 
@@ -142,7 +208,11 @@ MIT License - lásd [LICENSE](LICENSE) fájl a részletekért.
 
 ## Verziónapló
 
-### v1.0.0 (2025-02-04)
+### v1.1.0 (2026-02-05)
+- `Get-ServiceStatus.ps1` script hozzáadása
+- Kritikus szolgáltatások állapotellenőrzése
+
+### v1.0.0 (2026-02-04)
 - Kezdeti verzió
 - `Get-SystemHealth.ps1` script hozzáadása
 - Alapvető dokumentáció
